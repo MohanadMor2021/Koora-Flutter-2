@@ -5,7 +5,6 @@ import 'package:koora_app/components/global_componnets.dart';
 
 import 'signup_screen.dart';
 
-//#20272D
 
 class StartScreen extends StatefulWidget {
   @override

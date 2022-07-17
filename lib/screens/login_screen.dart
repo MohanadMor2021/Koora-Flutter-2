@@ -4,16 +4,16 @@ import 'package:flutter_screenutil/size_extension.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:koora_app/components/colors.dart';
 import 'package:koora_app/components/global_componnets.dart';
-import 'package:koora_app/screens/login_screen.dart';
+import 'package:koora_app/screens/signup_screen.dart';
 
-import 'info_screen.dart';
+import 'forgetpassword_screen.dart';
 
-class SignupScreen extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
   @override
-  _SignupScreenState createState() => _SignupScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -22,14 +22,6 @@ class _SignupScreenState extends State<SignupScreen> {
         backgroundColor: Color(0xff20272D),
         body: Stack(
           children: [
-//            Container(
-//              height: double.infinity,
-//              width: double.infinity,
-//              child: SvgPicture.asset(
-//                'assets/images/background.svg',
-//                fit: BoxFit.cover,
-//              ),
-//            ),
 
             Container(
               height: 200.h,
@@ -55,27 +47,9 @@ class _SignupScreenState extends State<SignupScreen> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
+
                       SizedBox(
-                        height: 30,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30),
-                        child: Row(
-                          children: [
-                            InkWell(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Image.asset(
-                                  "assets/icons/back_arrow.png",
-                                  width: 12,
-                                )),
-                            Spacer(),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20.h,
+                        height: 50.h,
                       ),
                       myEnglishText(
                         "KoORa ZoNE",
@@ -100,23 +74,61 @@ class _SignupScreenState extends State<SignupScreen> {
                       SizedBox(
                         height: 15.h,
                       ),
-                      myTextField(
-                        "تأكيد كلمة المرور",
-                        Image.asset("assets/icons/lock.png"),
+
+
+
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15),
+                        child: Row(
+                          children: [
+                            Spacer(),
+                            InkWell(
+                              onTap: (){
+                                To(context, ForgetPasswordScreen());
+                              },
+                              child: myArabicText(
+                                "هل نسيت كلمة السر ؟",
+                                12,
+                                FontWeight.normal,
+                                Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
+
                       SizedBox(
-                        height: 40.h,
+                        height: 15.h,
                       ),
+
+
                       myButton(
-                        "سجل",
-                        () {
-                         // To(context, InformationScreen());
-                          To(context, LoginScreen());
-                        },
+                        "تسجيل الدخول",
+                            () {},
+                      ),
+
+                      SizedBox(
+                        height: 15.h,
+                      ),
+
+                      Padding(
+                        padding:  EdgeInsets.symmetric(horizontal: 15.w),
+                        child: myBorderButton(
+                          myArabicText(
+                            "انشاء حساب",
+                            15,
+                            FontWeight.bold,
+                            Colors.white,
+                          ),
+                              (){
+                                To(context , SignupScreen());
+                              },
+                        ),
                       ),
                       SizedBox(
                         height: 10.h,
                       ),
+
                       Row(
                         children: [
                           Expanded(
@@ -142,32 +154,36 @@ class _SignupScreenState extends State<SignupScreen> {
                           ),
                         ],
                       ),
+
                       Padding(
                         padding: const EdgeInsets.only(bottom: 100),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             socialMediaSignup(
-                              () {},
+                                  () {},
                               Image.asset("assets/icons/apple.png"),
                             ),
                             SizedBox(
                               width: 20.w,
                             ),
                             socialMediaSignup(
-                              () {},
+                                  () {},
                               Image.asset("assets/icons/google.png"),
                             ),
                             SizedBox(
                               width: 20.w,
                             ),
                             socialMediaSignup(
-                              () {},
+                                  () {},
                               Image.asset("assets/icons/facebook.png"),
                             ),
                           ],
                         ),
                       ),
+
+
+
                       myEnglishText(
                         "AWK-software",
                         18,

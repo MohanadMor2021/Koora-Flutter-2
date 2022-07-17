@@ -22,8 +22,9 @@ import 'colors.dart';
 
 
  Widget myTextField(String hint , Widget icon) =>
-     Container(
-       height: 100,
+     Padding(
+       padding:  EdgeInsets.symmetric(horizontal: 15),
+
        child: TextField(
          obscureText: true,
          decoration: InputDecoration(
@@ -47,6 +48,45 @@ import 'colors.dart';
 
 
 
+ Widget infoTextField(String hint) =>
+
+     Column(
+       children: [
+         Divider(
+           color: Color(0xff707070),
+           indent: 10,
+           endIndent: 20,
+         ),
+         SizedBox(
+           height: 30,
+           child: TextField(
+             obscureText: true,
+
+             decoration: InputDecoration(
+               hintText: hint,
+               hintStyle: TextStyle(
+                 color: hintTextColor,
+                 fontWeight: FontWeight.w500,
+                 fontSize: 18,
+                 fontFamily: 'tajawal',
+               ),
+               contentPadding: EdgeInsets.only(top: 5 , right: 20),
+               filled: true,
+               fillColor: textFieldColor,
+               border: OutlineInputBorder(
+                   borderSide: BorderSide.none,
+                   borderRadius: BorderRadius.circular(10)),
+             ),
+           ),
+         ),
+         Divider(
+           color: Color(0xff707070),
+           indent: 10,
+           endIndent: 20,
+         ),
+       ],
+     );
+
 
 
 
@@ -66,6 +106,23 @@ Widget svgImage(
       width: width ?? size,
     );
 
+
+
+Widget  socialMediaSignup(Function fun , Widget child) =>
+
+    InkWell(
+      onTap: fun,
+      child: Container(
+        alignment: Alignment.center,
+        width: 50.0.w,
+        height: 50.0.h,
+        decoration:  BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.circle,
+        ),
+        child: child,
+      ),
+    );
 
 
 
@@ -362,32 +419,26 @@ Widget myListTielStatic(String title , Widget icon  , Function function) =>
   Widget myButton(String title , fun) =>
     InkWell(
       onTap: fun,
-      child: Container(
-        alignment: Alignment.center,
-        width: double.infinity,
-        height: 45.h,
-        decoration: BoxDecoration(
-          color: buttonColor ,
-          borderRadius: BorderRadius.circular(10.r),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+      child: Padding(
+        padding:  EdgeInsets.symmetric(horizontal: 15.w),
+        child: Container(
+          alignment: Alignment.center,
+          width: double.infinity,
+          height: 45.h,
+          decoration: BoxDecoration(
+            color: buttonColor ,
+            borderRadius: BorderRadius.circular(6.r),
+          ),
+          child: Text(
+            title,
+            style: TextStyle(
+              fontSize: 14.sp,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+                fontFamily: 'tajawal',
 
-            SizedBox(
-              width: 5.w,
             ),
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 14.sp,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                  fontFamily: 'tajawal',
-
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
