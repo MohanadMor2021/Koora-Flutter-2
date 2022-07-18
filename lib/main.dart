@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/screenutil_init.dart';
+import 'package:koora_app/screens/forgetpassword_screen.dart';
 import 'package:koora_app/screens/info_screen.dart';
 import 'package:koora_app/screens/login_screen.dart';
 import 'package:koora_app/screens/signup_screen.dart';
 import 'package:koora_app/screens/start_screen.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
-
 //  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
 ////    systemNavigationBarColor: Colors.blue, // navigation bar color
 //    statusBarColor: Colors.transparent, // status bar color
 //
 //  ));
-
 
   runApp(MyApp());
 }

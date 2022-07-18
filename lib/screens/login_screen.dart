@@ -22,7 +22,6 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Color(0xff20272D),
         body: Stack(
           children: [
-
             Container(
               height: 200.h,
               decoration: const BoxDecoration(
@@ -33,86 +32,92 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20)
-                  .add(EdgeInsets.only(top: 90, bottom: 0)),
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Container(
+                margin: (EdgeInsets.only(
+                  top: (MediaQuery.of(context).size.height -
+                          MediaQuery.of(context).padding.top) *
+                      0.1,
+                  bottom: (MediaQuery.of(context).size.height -
+                          MediaQuery.of(context).padding.top) *
+                      0.1,
+                )),
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.85,
                 decoration: BoxDecoration(
                   color: containerColor,
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: SingleChildScrollView(
-                  child: Column(
+                child: LayoutBuilder(
+                  builder: (ctx, constraint) => Column(
                     children: [
-
                       SizedBox(
-                        height: 50.h,
+                        height: 30.h,
                       ),
-                      myEnglishText(
-                        "KoORa ZoNE",
-                        25,
-                        FontWeight.bold,
-                        Colors.white,
+                      Container(
+                        height: constraint.maxHeight * 0.05,
+                        child: myEnglishText(
+                          "KoORa ZoNE",
+                          25,
+                          FontWeight.bold,
+                          Colors.white,
+                        ),
                       ),
                       SizedBox(
                         height: 25.h,
                       ),
-                      myTextField(
-                        "البريد الاكتروني",
-                        Image.asset("assets/icons/email.png"),
-                      ),
-                      SizedBox(
-                        height: 15.h,
-                      ),
-                      myTextField(
-                        "كلمة المرور",
-                        Image.asset("assets/icons/lock.png"),
-                      ),
-                      SizedBox(
-                        height: 15.h,
-                      ),
-
-
-
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15),
-                        child: Row(
-                          children: [
-                            Spacer(),
-                            InkWell(
-                              onTap: (){
-                                To(context, ForgetPasswordScreen());
-                              },
-                              child: myArabicText(
-                                "هل نسيت كلمة السر ؟",
-                                12,
-                                FontWeight.normal,
-                                Colors.white,
-                              ),
-                            ),
-                          ],
+                      Container(
+                        height: constraint.maxHeight * 0.1,
+                        child: myTextField(
+                          "البريد الاكتروني",
+                          Image.asset("assets/icons/email.png"),
                         ),
                       ),
-
                       SizedBox(
                         height: 15.h,
                       ),
-
-
+                      Container(
+                        height: constraint.maxHeight * 0.1,
+                        child: myTextField(
+                          "كلمة المرور",
+                          Image.asset("assets/icons/lock.png"),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15.h,
+                      ),
+                      Container(
+                        height: constraint.maxHeight * 0.05,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: Row(
+                            children: [
+                              Spacer(),
+                              InkWell(
+                                onTap: () {
+                                  To(context, ForgetPasswordScreen());
+                                },
+                                child: myArabicText(
+                                  "هل نسيت كلمة السر ؟",
+                                  12,
+                                  FontWeight.normal,
+                                  Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
                       myButton(
                         "تسجيل الدخول",
-                            () {},
+                        () {},
                       ),
-
-                      SizedBox(
-                        height: 15.h,
-                      ),
-
                       Padding(
-                        padding:  EdgeInsets.symmetric(horizontal: 15.w),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 15.w, vertical: 10.h),
                         child: myBorderButton(
                           myArabicText(
                             "انشاء حساب",
@@ -120,15 +125,14 @@ class _LoginScreenState extends State<LoginScreen> {
                             FontWeight.bold,
                             Colors.white,
                           ),
-                              (){
-                                To(context , SignupScreen());
-                              },
+                          () {
+                            To(context, SignupScreen());
+                          },
                         ),
                       ),
                       SizedBox(
                         height: 10.h,
                       ),
-
                       Row(
                         children: [
                           Expanded(
@@ -154,41 +158,47 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ],
                       ),
-
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 100),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            socialMediaSignup(
-                                  () {},
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: constraint.maxHeight * 0.1,
+                            child: socialMediaSignup(
+                              () {},
                               Image.asset("assets/icons/apple.png"),
                             ),
-                            SizedBox(
-                              width: 20.w,
-                            ),
-                            socialMediaSignup(
-                                  () {},
+                          ),
+                          SizedBox(
+                            width: 20.w,
+                          ),
+                          Container(
+                            height: constraint.maxHeight * 0.1,
+                            child: socialMediaSignup(
+                              () {},
                               Image.asset("assets/icons/google.png"),
                             ),
-                            SizedBox(
-                              width: 20.w,
-                            ),
-                            socialMediaSignup(
-                                  () {},
+                          ),
+                          SizedBox(
+                            width: 20.w,
+                          ),
+                          Container(
+                            height: constraint.maxHeight * 0.1,
+                            child: socialMediaSignup(
+                              () {},
                               Image.asset("assets/icons/facebook.png"),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-
-
-
-                      myEnglishText(
-                        "AWK-software",
-                        18,
-                        FontWeight.bold,
-                        textColor,
+                      Spacer(),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 20.h),
+                        child: myEnglishText(
+                          "AWK-software",
+                          18,
+                          FontWeight.bold,
+                          textColor,
+                        ),
                       ),
                     ],
                   ),

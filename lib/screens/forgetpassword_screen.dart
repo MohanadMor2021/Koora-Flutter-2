@@ -20,7 +20,6 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
         backgroundColor: Color(0xff20272D),
         body: Stack(
           children: [
-
             Container(
               height: 200.h,
               decoration: const BoxDecoration(
@@ -31,21 +30,25 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 ),
               ),
             ),
-
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20)
-                  .add(EdgeInsets.only(top: 90, bottom: 0)),
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Container(
+                margin: (EdgeInsets.only(
+                  top: (MediaQuery.of(context).size.height -
+                          MediaQuery.of(context).padding.top) *
+                      0.1,
+                  bottom: (MediaQuery.of(context).size.height -
+                          MediaQuery.of(context).padding.top) *
+                      0.1,
+                )),
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.85,
                 decoration: BoxDecoration(
                   color: containerColor,
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: SingleChildScrollView(
-                  child: Column(
+                child: LayoutBuilder(
+                  builder: (ctx, constraint) => Column(
                     children: [
-
                       SizedBox(
                         height: 50.h,
                       ),
@@ -58,14 +61,12 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       SizedBox(
                         height: 25.h,
                       ),
-
                       Padding(
                         padding: const EdgeInsets.only(right: 15),
                         child: Row(
                           children: [
-
                             InkWell(
-                              onTap: (){},
+                              onTap: () {},
                               child: myArabicText(
                                 "إعادة تعيين كلمة السر",
                                 12,
@@ -77,23 +78,18 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           ],
                         ),
                       ),
-
                       SizedBox(
                         height: 15.h,
                       ),
-
-
                       myTextField(
                         "البريد الاكتروني",
                         Image.asset("assets/icons/email.png"),
                       ),
-
                       SizedBox(
                         height: 15.h,
                       ),
-
                       Padding(
-                        padding:  EdgeInsets.symmetric(horizontal: 15.w),
+                        padding: EdgeInsets.symmetric(horizontal: 15.w),
                         child: myBorderButton(
                           myArabicText(
                             "إعادة تعيين",
@@ -101,23 +97,20 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                             FontWeight.bold,
                             Colors.white,
                           ),
-                              (){
-                            To(context , SignupScreen());
+                          () {
+                            To(context, SignupScreen());
                           },
                         ),
                       ),
-                      SizedBox(
-                        height:( MediaQuery.of(context).size.height * 0.85) * 0.47 ,
-                      ),
-
-
-
-
-                      myEnglishText(
-                        "AWK-software",
-                        18,
-                        FontWeight.bold,
-                        textColor,
+                      Spacer(),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 20.h),
+                        child: myEnglishText(
+                          "AWK-software",
+                          18,
+                          FontWeight.bold,
+                          textColor,
+                        ),
                       ),
                     ],
                   ),

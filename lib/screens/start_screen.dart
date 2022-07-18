@@ -5,7 +5,6 @@ import 'package:koora_app/components/global_componnets.dart';
 
 import 'signup_screen.dart';
 
-
 class StartScreen extends StatefulWidget {
   @override
   _StartScreenState createState() => _StartScreenState();
@@ -18,46 +17,51 @@ class _StartScreenState extends State<StartScreen> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         backgroundColor: backGroundColors,
-
-
         body: Padding(
-          padding:  EdgeInsets.symmetric(vertical: 22.h ),
+          padding: EdgeInsets.symmetric(vertical: 22.h),
           child: Column(
             children: [
-              Image.asset("assets/images/start_image.png" , width: 350,),
+              Container(
+                height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.5,
+                child: Image.asset(
+                  "assets/images/start_image.png",
+                  width: 350,
+                ),
+              ),
               myEnglishText(
                 "KoORa ZoNE",
                 27,
                 FontWeight.bold,
                 textColor,
               ),
-
-              SizedBox(height: 25.h,),
+              SizedBox(
+                height: 25.h,
+              ),
               myArabicText(
                 "تواصل مع مشجعين فريقك ومع الخصوم",
                 19,
                 FontWeight.normal,
                 textColor,
               ),
-              SizedBox(height: 50.h,),
-
+              SizedBox(
+                height: 50.h,
+              ),
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 20.w),
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: myBorderButton(
                   myArabicText(
-                   "بدء",
+                    "بدء",
                     19,
                     FontWeight.normal,
                     textColor,
                   ),
-                    (){
+                  () {
                     To(context, SignupScreen());
-                    },
+                  },
                 ),
               ),
-
-
-
               Spacer(),
               myEnglishText(
                 "AWK-software",

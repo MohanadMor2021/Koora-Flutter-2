@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^0.22.0
   flutter_screenutil: ^4.0.2+5
-
+  flutter_native_splash: 
 
 dev_dependencies:
   flutter_test:
@@ -91,6 +91,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-
-
-
+flutter_native_splash:
+  background_image: "assets/images/splash.png"
+  android_gravity: fill
+  android: true
+  ios: true

@@ -43,20 +43,26 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
 
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20)
-                  .add(EdgeInsets.only(top: 90, bottom: 0)),
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Container(
+                margin: (EdgeInsets.only(
+                  top: (MediaQuery.of(context).size.height -
+                          MediaQuery.of(context).padding.top) *
+                      0.1,
+                  bottom: (MediaQuery.of(context).size.height -
+                          MediaQuery.of(context).padding.top) *
+                      0.1,
+                )),
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.85,
                 decoration: BoxDecoration(
                   color: containerColor,
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: SingleChildScrollView(
-                  child: Column(
+                child: LayoutBuilder(
+                  builder: (ctx, constraint) => Column(
                     children: [
                       SizedBox(
-                        height: 30,
+                        height: 20,
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 30),
@@ -66,51 +72,66 @@ class _SignupScreenState extends State<SignupScreen> {
                                 onTap: () {
                                   Navigator.pop(context);
                                 },
-                                child: Image.asset(
-                                  "assets/icons/back_arrow.png",
-                                  width: 12,
+                                child: Container(
+                                  height: constraint.maxHeight * 0.03,
+                                  child: Image.asset(
+                                    "assets/icons/back_arrow.png",
+                                    width: 12,
+                                  ),
                                 )),
                             Spacer(),
                           ],
                         ),
                       ),
                       SizedBox(
-                        height: 20.h,
+                        height: 15.h,
                       ),
-                      myEnglishText(
-                        "KoORa ZoNE",
-                        25,
-                        FontWeight.bold,
-                        Colors.white,
+                      Container(
+                        height: constraint.maxHeight * 0.05,
+                        child: myEnglishText(
+                          "KoORa ZoNE",
+                          25,
+                          FontWeight.bold,
+                          Colors.white,
+                        ),
                       ),
                       SizedBox(
                         height: 25.h,
                       ),
-                      myTextField(
-                        "البريد الاكتروني",
-                        Image.asset("assets/icons/email.png"),
+                      Container(
+                        height: constraint.maxHeight * 0.1,
+                        child: myTextField(
+                          "البريد الاكتروني",
+                          Image.asset("assets/icons/email.png"),
+                        ),
                       ),
                       SizedBox(
                         height: 15.h,
                       ),
-                      myTextField(
-                        "كلمة المرور",
-                        Image.asset("assets/icons/lock.png"),
+                      Container(
+                        height: constraint.maxHeight * 0.1,
+                        child: myTextField(
+                          "كلمة المرور",
+                          Image.asset("assets/icons/lock.png"),
+                        ),
                       ),
                       SizedBox(
                         height: 15.h,
                       ),
-                      myTextField(
-                        "تأكيد كلمة المرور",
-                        Image.asset("assets/icons/lock.png"),
+                      Container(
+                        height: constraint.maxHeight * 0.1,
+                        child: myTextField(
+                          "تأكيد كلمة المرور",
+                          Image.asset("assets/icons/lock.png"),
+                        ),
                       ),
                       SizedBox(
-                        height: 40.h,
+                        height: 30.h,
                       ),
                       myButton(
                         "سجل",
                         () {
-                         // To(context, InformationScreen());
+                          // To(context, InformationScreen());
                           To(context, LoginScreen());
                         },
                       ),
@@ -142,37 +163,47 @@ class _SignupScreenState extends State<SignupScreen> {
                           ),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 100),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            socialMediaSignup(
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 40.h,
+                            child: socialMediaSignup(
                               () {},
                               Image.asset("assets/icons/apple.png"),
                             ),
-                            SizedBox(
-                              width: 20.w,
-                            ),
-                            socialMediaSignup(
+                          ),
+                          SizedBox(
+                            width: 20.w,
+                          ),
+                          Container(
+                            height: 40.h,
+                            child: socialMediaSignup(
                               () {},
                               Image.asset("assets/icons/google.png"),
                             ),
-                            SizedBox(
-                              width: 20.w,
-                            ),
-                            socialMediaSignup(
+                          ),
+                          SizedBox(
+                            width: 20.w,
+                          ),
+                          Container(
+                            height: 40.h,
+                            child: socialMediaSignup(
                               () {},
                               Image.asset("assets/icons/facebook.png"),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      myEnglishText(
-                        "AWK-software",
-                        18,
-                        FontWeight.bold,
-                        textColor,
+                      Spacer(),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 20.h),
+                        child: myEnglishText(
+                          "AWK-software",
+                          18,
+                          FontWeight.bold,
+                          textColor,
+                        ),
                       ),
                     ],
                   ),
